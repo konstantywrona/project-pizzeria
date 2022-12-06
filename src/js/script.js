@@ -239,8 +239,8 @@
 
       thisWidget.setValue(settings.amountWidget.defaultValue);
 
-      console.log('AmountWidget:', thisWidget);
-      console.log('constructor arguments:', element);
+      // console.log('AmountWidget:', thisWidget);
+      // console.log('constructor arguments:', element);
     }
 
     getElements(element) {
