@@ -90,25 +90,27 @@
     getElements() {
       const thisProduct = this;
 
-      thisProduct.accordionTrigger = thisProduct.element.querySelector(
+      thisProduct.dom = {};
+
+      thisProduct.dom.accordionTrigger = thisProduct.element.querySelector(
         select.menuProduct.clickable
       );
       thisProduct.form = thisProduct.element.querySelector(
         select.menuProduct.form
       );
-      thisProduct.formInputs = thisProduct.form.querySelectorAll(
+      thisProduct.dom.formInputs = thisProduct.form.querySelectorAll(
         select.all.formInputs
       );
-      thisProduct.cartButton = thisProduct.element.querySelector(
+      thisProduct.dom.cartButton = thisProduct.element.querySelector(
         select.menuProduct.cartButton
       );
-      thisProduct.priceElem = thisProduct.element.querySelector(
+      thisProduct.dom.priceElem = thisProduct.element.querySelector(
         select.menuProduct.priceElem
       );
-      thisProduct.imageWrapper = thisProduct.element.querySelector(
+      thisProduct.dom.imageWrapper = thisProduct.element.querySelector(
         select.menuProduct.imageWrapper
       );
-      thisProduct.amountWidgetElem = thisProduct.element.querySelector(
+      thisProduct.dom.amountWidgetElem = thisProduct.element.querySelector(
         select.menuProduct.amountWidget
       );
     }
@@ -117,25 +119,30 @@
       const thisProduct = this;
 
       /* START: add event listener to clickable trigger on event click */
-      thisProduct.accordionTrigger.addEventListener('click', function (event) {
-        /* prevent default action for event */
-        event.preventDefault();
+      thisProduct.dom.accordionTrigger.addEventListener(
+        'click',
+        function (event) {
+          /* prevent default action for event */
+          event.preventDefault();
 
-        /* find active product (product that has active class) */
-        const activeProduct = document.querySelector(
-          select.all.menuProductsActive
-        );
+          /* find active product (product that has active class) */
+          const activeProduct = document.querySelector(
+            select.all.menuProductsActive
+          );
 
-        /* if there is active product and it's not thisProduct.element, remove class active from it */
-        if (activeProduct && activeProduct != thisProduct.element) {
-          activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
+          /* if there is active product and it's not thisProduct.element, remove class active from it */
+          if (activeProduct && activeProduct != thisProduct.element) {
+            activeProduct.classList.remove(
+              classNames.menuProduct.wrapperActive
+            );
+          }
+
+          /* toggle active class on thisProduct.element */
+          thisProduct.element.classList.toggle(
+            classNames.menuProduct.wrapperActive
+          );
         }
-
-        /* toggle active class on thisProduct.element */
-        thisProduct.element.classList.toggle(
-          classNames.menuProduct.wrapperActive
-        );
-      });
+      );
     }
 
     initOrderForm() {
@@ -146,13 +153,13 @@
         thisProduct.processOrder();
       });
 
-      for (let input of thisProduct.formInputs) {
+      for (let input of thisProduct.dom.formInputs) {
         input.addEventListener('change', function () {
           thisProduct.processOrder();
         });
       }
 
-      thisProduct.cartButton.addEventListener('click', function (event) {
+      thisProduct.dom.cartButton.addEventListener('click', function (event) {
         event.preventDefault();
         thisProduct.processOrder();
       });
@@ -160,8 +167,10 @@
     initAmountWidget() {
       const thisProduct = this;
 
-      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-      thisProduct.amountWidgetElem.addEventListener('updated', function () {
+      thisProduct.dom.amountWidget = new AmountWidget(
+        thisProduct.dom.amountWidgetElem
+      );
+      thisProduct.dom.amountWidgetElem.addEventListener('updated', function () {
         thisProduct.processOrder();
       });
     }
@@ -189,7 +198,7 @@
           // console.log(optionId, option);
 
           // find image linked to option
-          const optionImage = thisProduct.imageWrapper.querySelector(
+          const optionImage = thisProduct.dom.imageWrapper.querySelector(
             '.' + paramId + '-' + optionId
           );
 
@@ -222,10 +231,10 @@
         }
       }
       /* multiply price by amount */
-      price *= thisProduct.amountWidget.value;
+      price *= thisProduct.dom.amountWidget.value;
 
       // update calculated price in the HTML
-      thisProduct.priceElem.innerHTML = price;
+      thisProduct.dom.priceElem.innerHTML = price;
     }
   }
 
@@ -298,6 +307,25 @@
 
       const event = new Event('updated');
       thisWidget.element.dispatchEvent(event);
+    }
+  }
+  class Cart {
+    constructor(element) {
+      const thisCart = this;
+
+      thisCart.products = [];
+
+      thisCart.getElements(element);
+
+      console.log('new Cart', thisCart);
+    }
+
+    getElements(element) {
+      const thisCart = this;
+
+      thisCart.dom = {};
+
+      thisCart.dom.wrapper = element;
     }
   }
 
