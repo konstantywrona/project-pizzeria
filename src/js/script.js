@@ -403,6 +403,7 @@
       thisWidget.element.dispatchEvent(event);
     }
   }
+
   class Cart {
     constructor(element) {
       const thisCart = this;
@@ -518,6 +519,7 @@
       thisCart.update();
     }
   }
+
   class CartProduct {
     constructor(menuProduct, element) {
       const thisCartProduct = this;
