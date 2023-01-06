@@ -11,6 +11,7 @@ class Booking {
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.initTables();
   }
 
   getData() {
@@ -167,6 +168,45 @@ class Booking {
     }
   }
 
+  initTables() {
+    const thisBooking = this;
+
+    for (let table of thisBooking.dom.tables) {
+      table.addEventListener('click', function (event) {
+        if (event.target.classList.contains(classNames.booking.tableBooked)) {
+          alert('Ten stolik jest już zajęty');
+        }
+        const clickedTable = table.getAttribute(
+          settings.booking.tableIdAttribute
+        );
+        if (
+          !event.target.classList.contains(classNames.booking.tableSelected)
+        ) {
+          for (let lastTable of thisBooking.dom.tables) {
+            if (
+              lastTable.classList.contains(classNames.booking.tableSelected)
+            ) {
+              lastTable.classList.remove(classNames.booking.tableSelected);
+              const index = thisBooking.selectedTable.indexOf(clickedTable);
+              thisBooking.selectedTable.splice(index, 1);
+            }
+          }
+          event.target.classList.add(classNames.booking.tableSelected);
+          thisBooking.selectedTable.push(clickedTable);
+        } else {
+          event.target.classList.remove(classNames.booking.tableSelected);
+          const index = thisBooking.selectedTable.indexOf(clickedTable);
+          thisBooking.selectedTable.splice(index, 1);
+        }
+      });
+      thisBooking.dom.wrapper.addEventListener('updated', function () {
+        table.classList.remove(classNames.booking.tableSelected);
+        thisBooking.selectedTable = [];
+        console.log(thisBooking.selectedTable);
+      });
+    }
+  }
+
   render(element) {
     const thisBooking = this;
 
@@ -192,6 +232,9 @@ class Booking {
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(
       select.booking.tables
     );
+    thisBooking.dom.floorPlan = thisBooking.dom.wrapper.querySelector(
+      select.booking.floorPlan
+    );
   }
 
   initWidgets() {
@@ -210,6 +253,7 @@ class Booking {
     thisBooking.dom.wrapper.addEventListener('updated', function () {
       thisBooking.updateDOM();
     });
+    thisBooking.dom.floorPlan.addEventListener('clicked', function () {});
   }
 }
 
