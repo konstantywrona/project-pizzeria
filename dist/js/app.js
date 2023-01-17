@@ -2,6 +2,7 @@ import { settings, select, classNames } from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 const app = {
   initPages: function () {
@@ -16,12 +17,12 @@ const app = {
 
     for (let page of thisApp.pages) {
       if (page.id == idFromHash) {
-        pageMatchingHash == page.id;
+        pageMatchingHash = page.id;
         break;
       }
     }
 
-    thisApp.activatePage(idFromHash);
+    thisApp.activatePage(pageMatchingHash);
 
     for (let link of thisApp.navLinks) {
       link.addEventListener('click', function (event) {
@@ -57,6 +58,25 @@ const app = {
     }
   },
 
+  initHome: function () {
+    const thisApp = this;
+    const homeWidget = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(homeWidget);
+  },
+
+  initCart: function () {
+    const thisApp = this;
+
+    const cartElem = document.querySelector(select.containerOf.cart);
+    thisApp.cart = new Cart(cartElem);
+
+    thisApp.productList = document.querySelector(select.containerOf.menu);
+
+    thisApp.productList.addEventListener('add-to-cart', function (event) {
+      app.cart.add(event.detail.product);
+    });
+  },
+
   initMenu: function () {
     const thisApp = this;
 
@@ -86,19 +106,6 @@ const app = {
       });
   },
 
-  initCart: function () {
-    const thisApp = this;
-
-    const cartElem = document.querySelector(select.containerOf.cart);
-    thisApp.cart = new Cart(cartElem);
-
-    thisApp.productList = document.querySelector(select.containerOf.menu);
-
-    thisApp.productList.addEventListener('add-to-cart', function (event) {
-      app.cart.add(event.detail.product);
-    });
-  },
-
   initBooking: function () {
     const thisApp = this;
 
@@ -112,6 +119,7 @@ const app = {
     const thisApp = this;
 
     thisApp.initPages();
+    thisApp.initHome();
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
