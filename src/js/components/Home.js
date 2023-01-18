@@ -19,15 +19,14 @@ class Home {
   }
 
   initCarousel() {
-    const elem = document.querySelector('.main-carousel');
-    console.log(elem);
-    // eslint-disable-next-line no-undef
+    const elem = document.querySelector('.carousel');
     const flkty = new Flickity(elem, {
       cellAlign: 'left',
       contain: true,
+      autoPlay: 3000,
+      imagesLoaded: true,
+      prevNextButtons: false,
     });
-
-    console.log(flkty);
   }
 }
 

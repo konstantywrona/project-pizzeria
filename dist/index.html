@@ -68,7 +68,7 @@
 
   <div id="pages">
     <section id="home">
-      <div class="home-wrapper container"></div>
+      <div id="home-page" class="home-wrapper container"></div>
     </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
@@ -83,88 +83,137 @@
 			<div class="home-links">
 				<div class="links">
 				  <div class="link link-first">
-					<a href="#/order">Order online</a>
-					<img src="images/home/pizza-1.jpg" alt="pizza">
+            <h1>Order online!</h1>
+					  <a href="#/order">
+              <img src="images/home/pizza-1.jpg" alt="pizza">
+            </a>
 				  </div>
 				  <div class="link link-second">
-					<a href="#/booking">Book a table</a>
-					<img src="images/home/pizza-2.jpg" alt="pizza">
+            <h1>Book a table!</h1>
+					  <a href="#/booking">
+              <img src="images/home/pizza-2.jpg" alt="pizza">
+            </a>
 				  </div>
 				</div>
 				<div class="open-hours">
-				  <div class="text">
-					<p>Opening hours</p>
-					<p>Tue-Sun, 12pm - 12am</p>
-				  </div>
+				    <div class="text">
+					    <h1>Opening hours</h1>
+					    <p>Tue-Sun, 12pm - 12am</p>
+				    </div>
 				</div>
 			</div>
 			<section>
-				<div class="main-carousel">
-				  <div class="carousel-cell">
-					<div class="carousel-cell_img-wrapper"><img src="images/home/pizza-3.jpg" alt=""></div>
-					<div class="carousel-cell_description">Amazing service <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem doloremque placeat beatae vero, illum mollitia. Magni, deleniti. Obcaecati, labore. <br> -Margaret Osborne </div>
-				  </div>
-				  <div class="carousel-cell">
-					<div class="carousel-cell_img-wrapper"><img src="images/home/pizza-4.jpg" alt=""></div>
-					<div class="carousel-cell_description">great people <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem doloremque placeat beatae vero, illum mollitia. Magni, deleniti. Obcaecati, labore. <br> -Margaret Osborne </div>
-				  </div>
-				  <div class="carousel-cell">
-					<div class="carousel-cell_img-wrapper"><img src="images/home/pizza-5.jpg" alt=""></div>
-					<div class="carousel-cell_description"> fast delivery <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi autem doloremque placeat beatae vero, illum mollitia. Magni, deleniti. Obcaecati, labore. <br> -Margaret Osborne </div>
-				  </div>
-				</div>
-			  </section>
-			  <section class="gallery">
-				<div class="gallery-pic-wrapper">
-				  <img src="images/home/pizza-4.jpg" alt="">
-				  <div class="icons">
-					<i class="fa-solid fa-heart"></i>
-					<i class="fas fa-share-alt"></i>
-				  </div>
-				</div>
-				<div class="gallery-pic-wrapper">
-				  <img src="images/home/pizza-5.jpg" alt="">
-				  <div class="icons">
-					<i class="fa-solid fa-heart"></i>
-					<i class="fas fa-share-alt"></i>
-				  </div>
-				</div>
-				<div class="gallery-pic-wrapper">
-				  <img src="images/home/pizza-6.jpg" alt="">
-				  <div class="icons">
-					<i class="fa-solid fa-heart"></i>
-					<i class="fas fa-share-alt"></i>
-				  </div>
-				</div>
-				<div class="gallery-pic-wrapper">
-				  <img src="images/home/pizza-7.jpg" alt="">
-				  <div class="icons">
-					<i class="fa-solid fa-heart"></i>
-					<i class="fas fa-share-alt"></i>
-				  </div>
-				</div>
-				<div class="gallery-pic-wrapper">
-				  <img src="images/home/pizza-8.jpg" alt="">
-				  <div class="icons">
-					<i class="fa-solid fa-heart"></i>
-					<i class="fas fa-share-alt"></i>
-				  </div>
-				</div>
-				<div class="gallery-pic-wrapper">
-				  <img src="images/home/pizza-9.jpg" alt="">
-				  <div class="icons">
-					<i class="fa-solid fa-heart"></i>
-					<i class="fas fa-share-alt"></i>
-				  </div>
-				</div>
-			  </section>
-		  
+				<div class="carousel">
+          <div class="carousel-cell">
+            <div class="box-wrapper">
+              <div class="box-img">
+                <img src="./images/home/pizza-4.jpg">
+              </div>
+              <div class="box-description">
+                <h2>AMAZING SERVICE!</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut gravida ligula non tellus.</p>
+                <p>- Hans Klos</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div class="box-wrapper">
+              <div class="box-img">
+                <img src="./images/home/pizza-5.jpg">
+              </div>
+              <div class="box-description">
+                <h2>LOVELY ATMOSPHERE</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam consectetur sollicitudin orci.
+                  <p>- Frode Frodson</p>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-cell">
+            <div class="box-wrapper">
+              <div class="box-img">
+                <img src="./images/home/pizza-6.jpg">
+              </div>
+              <div class="box-description">
+                <h2>AUTHENTIC TASTE</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vehicula arcu a nisi sagittis fringilla.</p>
+                <p>- Hanna Tanna</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery">
+        <div class="gallery-wrapper">
+          <div class="gallery-row">
+            <div class="gallery-box">
+              <div class="gallery-image">
+                <img src="./images/home/pizza-4.jpg">
+                <div class="gallery-icon">
+                  <a href="#"><i class="fas fa-heart icon"></i></a>
+                  <a href="#"><i class="fas fa-share-alt icon"></i></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-box">
+              <div class="gallery-image">
+                <img src="./images/home/pizza-5.jpg">
+                <div class="gallery-icon">
+                  <a href="#"><i class="fas fa-heart icon"></i></a>
+                  <a href="#"><i class="fas fa-share-alt icon"></i></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-box">
+              <div class="gallery-image">
+                <img src="./images/home/pizza-6.jpg">
+                <div class="gallery-icon">
+                  <a href="#"><i class="fas fa-heart icon"></i></a>
+                  <a href="#"><i class="fas fa-share-alt icon"></i></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-row">
+            <div class="gallery-box">
+              <div class="gallery-image">
+                <img src="./images/home/pizza-7.jpg">
+                <div class="gallery-icon">
+                  <a href="#"><i class="fas fa-heart icon"></i></a>
+                  <a href="#"><i class="fas fa-share-alt icon"></i></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-box">
+              <div class="gallery-image">
+                <img src="./images/home/pizza-8.jpg">
+                <div class="gallery-icon">
+                  <a href="#"><i class="fas fa-heart icon"></i></a>
+                  <a href="#"><i class="fas fa-share-alt icon"></i></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-box">
+              <div class="gallery-image">
+                <img src="./images/home/pizza-9.jpg">
+                <div class="gallery-icon">
+                  <a href="#"><i class="fas fa-heart icon"></i></a>
+                  <a href="#"><i class="fas fa-share-alt icon"></i></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <a href="#">View more on instagram</a>
+        </div>
+      </div>
 		</div>
    </script>
 
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
-      <div class="widget-amount"> <!-- widget-amount -->
+      <div class="widget-amount">
         <a class="btn-quantity btn-quantity--lt" href="#less"><i class="fas fa-minus"></i></a>
         <input class="amount" type="text" value="{{ amount }}">
         <a class="btn-quantity btn-quantity--lt" href="#more"><i class="fas fa-plus"></i></a>

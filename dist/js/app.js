@@ -41,6 +41,12 @@ const app = {
     }
   },
 
+  initHome: function () {
+    const thisApp = this;
+    const homeWidget = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(homeWidget);
+  },
+
   activatePage: function (pageId) {
     const thisApp = this;
 
@@ -56,12 +62,6 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );
     }
-  },
-
-  initHome: function () {
-    const thisApp = this;
-    const homeWidget = document.querySelector(select.containerOf.home);
-    thisApp.home = new Home(homeWidget);
   },
 
   initCart: function () {
